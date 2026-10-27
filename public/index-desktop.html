@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Min friluft</title>
+    <link rel="stylesheet" href="css/desktop.css" />
+  </head>
+  <body>
+    <main id="app"></main>
+
+    <script src="js/model.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+
+    <script src="js/desktopPageView.js"></script>
+    <script src="js/desktopPageController.js"></script>
+
+    <script>
+      // BRUKERHANDLING → CONTROLLER → MODELLENDRING → updateView() → NY HTML
+      function updateView() {
+        if (model.app.currentPage === "loginPage") {
+          updateViewDesktopLoginPage();
+        } else if (model.app.currentPage === "homePage") {
+          updateViewDesktopHomePage();
+        } else if (model.app.currentPage === "tripsPage") {
+          updateViewDesktopTripsPage();
+        } else if (model.app.currentPage === "tripViewPage") {
+          updateViewDesktopTripViewPage();
+        } else if (model.app.currentPage === "newTripPage") {
+          updateViewDesktopNewTripPage();
+        } else if (model.app.currentPage === "editTripPage") {
+          updateViewDesktopEditTripPage();
+        } else if (model.app.currentPage === "notesPage") {
+          updateViewDesktopNotesPage();
+        } else if (model.app.currentPage === "noteViewPage") {
+          updateViewDesktopNoteViewPage();
+        } else if (model.app.currentPage === "newNotePage") {
+          updateViewDesktopNewNotePage();
+        } else if (model.app.currentPage === "editNotePage") {
+          updateViewDesktopEditNotePage();
+        } else if (model.app.currentPage === "searchPage") {
+          updateViewDesktopSearchPage();
+        } else if (model.app.currentPage === "settingsPage") {
+          updateViewDesktopSettingsPage();
+        }
+      }
+
+      updateView();
+    </script>
+
+    <script>
+      /* Desktop-utgaven henter data fra API-et, så den kan ikke tegne
+         seg før vi vet om vi er logget inn. desktopBoot() sjekker
+         sesjonen, henter dataene og tegner den riktige siden. */
+      desktopBoot();
+    </script>
+  </body>
+</html>

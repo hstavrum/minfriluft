@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tester · Min friluft</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/qunit/qunit-3.0.0.css"
+    />
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-3.0.0.js"></script>
+
+    <script src="js/model.js"></script>
+    <script src="js/common.js"></script>
+
+    <!-- Controllerne lagrer via API-et. I testene bruker vi en falsk API,
+         slik at testene kjører uten en server. -->
+    <script src="test/apiStub.js"></script>
+
+    <script src="js/loginPageView.js"></script>
+    <script src="js/loginPageController.js"></script>
+
+    <!-- Turene trenger også tripsPageView.js, fordi controlleren
+         bruker countPicturePages() når den deler bildene i sider. -->
+    <script src="js/tripsPageView.js"></script>
+    <script src="js/tripsPageController.js"></script>
+    <script src="js/notesPageController.js"></script>
+    <script src="js/searchPageController.js"></script>
+    <script src="js/settingsPageView.js"></script>
+    <script src="js/settingsPageController.js"></script>
+
+    <script>
+      // I testene teller vi bare hvor mange ganger controlleren ber om ny HTML.
+      // Da slipper vi å tegne de andre sidene mens vi tester innloggingen.
+      function updateView() {
+        updateViewCallCount++;
+      }
+    </script>
+
+    <script src="test/controllerTests.js"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Min friluft</title>
+
+    <!-- Som en app på hjemskjermen: eget ikon, egen statuslinje, og
+         ingen nettleser-ramme rundt. -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+    <meta name="theme-color" content="#2e7d32" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Friluft" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main id="app"></main>
+
+    <script src="js/model.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/pwa.js"></script>
+
+    <script src="js/loginPageView.js"></script>
+    <script src="js/loginPageController.js"></script>
+    <script src="js/tripsPageView.js"></script>
+    <script src="js/tripsPageController.js"></script>
+    <script src="js/notesPageView.js"></script>
+    <script src="js/notesPageController.js"></script>
+    <script src="js/searchPageView.js"></script>
+    <script src="js/searchPageController.js"></script>
+    <script src="js/settingsPageView.js"></script>
+    <script src="js/settingsPageController.js"></script>
+
+    <script>
+      // BRUKERHANDLING → CONTROLLER → MODELLENDRING → updateView() → NY HTML
+      function updateView() {
+        if (model.app.currentPage === "loginPage") {
+          updateViewLoginPage();
+        } else if (model.app.currentPage === "tripsPage") {
+          updateViewTripsPage();
+        } else if (model.app.currentPage === "tripViewPage") {
+          updateViewTripViewPage();
+        } else if (model.app.currentPage === "newTripPage") {
+          updateViewNewTripPage();
+        } else if (model.app.currentPage === "editTripPage") {
+          updateViewEditTripPage();
+        } else if (model.app.currentPage === "notesPage") {
+          updateViewNotesPage();
+        } else if (model.app.currentPage === "editNotePage") {
+          updateViewEditNotesPage();
+        } else if (model.app.currentPage === "noteViewPage") {
+          updateViewNoteViewPage();
+        } else if (model.app.currentPage === "searchPage") {
+          updateViewSearchPage();
+        } else if (model.app.currentPage === "settingsPage") {
+          updateViewSettingsPage();
+        }
+      }
+
+      updateView();
+    </script>
+
+    <script>
+      /* Mobil-utgaven henter data fra API-et, så den kan ikke tegne seg
+         før vi vet om vi er logget inn. mobileBoot() sjekker sesjonen,
+         henter dataene og tegner den riktige siden. */
+      mobileBoot();
+    </script>
+
+    <script>
+      /* Gjør appen installerbar: service worker for offline-støtte, og
+         knappen for å legge appen på hjemskjermen. */
+      pwa.start();
+    </script>
+  </body>
+</html>

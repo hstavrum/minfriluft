@@ -1,0 +1,17 @@
+# Node
+node_modules/
+
+# Playwright
+server/test-results/
+server/playwright-report/
+server/.playwright/
+
+# Lokal database
+server/data/
+*.db
+*.db-wal
+*.db-shm
+
+# OS
+.DS_Store
+Thumbs.db

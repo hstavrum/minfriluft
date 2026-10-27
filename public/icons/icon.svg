@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Min friluft">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2e7d32" />
+      <stop offset="1" stop-color="#1b5e20" />
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" fill="url(#sky)" />
+
+  <!-- sola -->
+  <circle cx="372" cy="140" r="46" fill="#fdd835" />
+
+  <!-- fjellene -->
+  <path d="M64 400 L192 176 L262 286 L318 214 L448 400 Z" fill="#ffffff" />
+  <!-- snøflekken -->
+  <path d="M148 246 L192 176 L236 246 L214 232 L192 252 L170 232 Z" fill="#e8f5e9" />
+
+  <!-- stien som går opp mot dalen mellom fjellene -->
+  <path d="M232 400 C 244 356, 264 348, 262 318 C 260 300, 262 292, 262 286"
+        fill="none" stroke="#a5d6a7" stroke-width="14" stroke-linecap="round" />
+</svg>
