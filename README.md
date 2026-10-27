@@ -39,7 +39,7 @@ db/                schema.sql og seed.sql
 ```bash
 npm --prefix server install
 npm run migrate                # oppretter og oppdaterer databasen
-node server/scripts/create-user.js --email terje@eksempel.no --password hemmelig
+node server/scripts/create-user.js --email demo@eksempel.no --password hemmelig
 npm start                      # starter både appen og API-et på http://127.0.0.1:3000
 ```
 
